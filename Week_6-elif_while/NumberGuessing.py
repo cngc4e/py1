@@ -59,7 +59,9 @@ def guess_my_number():
             return
         else:
             continue
-        guessNo = random.randint(lowest, highest)
+        if highest - lowest <= 1:
+            break
+        guessNo = random.randint(lowest + 1, highest - 1)
 
     print("Your number is", guessNo, end = '')
     print(" (...and I guessed it in", tries, "tries)" if tries > 1 else "try)")
